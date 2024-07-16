@@ -5,7 +5,7 @@
 #define INIT_ERR  1
 #define REQ_ERR	  2
 
-#define URL	  "http://10.1.10.46"
+#define URL	  "http://localhost:8000"
 
 int main(void) {
   CURL	    *curl;
