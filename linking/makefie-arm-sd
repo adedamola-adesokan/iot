@@ -1,0 +1,25 @@
+BUILDROOT_HOME=/home/adedamola/buildroot
+
+CC=$(BUILDROOT_HOME)/output/host/usr/bin/arm-linux-gcc
+CFLAGS=--sysroot=$(BUILDROOT_HOME)/output/staging
+INCLUDES=
+LFLAGS=
+
+LIBS=-uClibc -lc
+
+SRC=printer.c
+OBJ=$(SRC:.c=.o)
+STATIC_MAIN=test-print-s
+DYNAMIC_MAIN=test-print-d
+
+RM=rm -rf
+
+.c.o:
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+all: $(OBJ)
+	$(CC) $(CFLAGS) -static $(INCLUDES) -o $(STATIC_MAIN) $(OBJ) $(FLAGS) $(LIBS)
+	$(CC) $(CFLAGS) $(INCLUDES) -o $(DYNAMIC_MAIN) $(OBJ) $(LFLAGS) $(LIBS)
+
+clean:
+	$(RM) $(MAIN) *.o *~
