@@ -1,0 +1,19 @@
+#!/bin/sh
+# /etc/init.d/iotclientd
+
+case "$1" in
+  start)
+    echo "Starting iotclient"
+    /home/damola/iot_client &
+    ;;
+  stop)
+    echo "Stopping iotclient"
+    pkill iot_client
+    ;;
+  *)
+    echo "Usage: /etc/init.d/iotclientd {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0

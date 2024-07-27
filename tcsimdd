@@ -1,0 +1,19 @@
+#!/bin/sh
+# /etc/init.d/tcsimd
+
+case "$1" in
+  start)
+    echo "Starting tcsimd"
+    /home/damola/tcsimd &
+    ;;
+  stop)
+    echo "Stopping tcsimd"
+    pkill tcsimd
+    ;;
+  *)
+    echo "Usage: /etc/init.d/tcsimd {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0

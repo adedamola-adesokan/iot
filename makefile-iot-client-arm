@@ -5,11 +5,11 @@ CFLAGS=--sysroot=$(BUILDROOT_HOME)/output/staging
 INCLUDES=
 LFLAGS=
 
-LIBS=-lcurl -lc
+LIBS=-lcurl -lc -lz -lssl -lcrypto -lrt -lpthread -ldl
 
-SRC=tc_main.c tc_state.c tc_error.c
+SRC=iot_client.c
 OBJ=$(SRC:.c=.o)
-MAIN=tcsimd
+MAIN=iot_client
 
 RM=rm -rf
 
